@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24/7 Emergency Plumbing | Cape Ann Plumbing | Eastern MA</title>
+  <meta name="description" content="Emergency plumbing repairs in Eastern Massachusetts. Burst pipes, sewer backups, water heater failures — we respond fast, 24 hours a day. Call (978) 555-0192." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a3a5c;
+      --blue-light: #2563a8;
+      --orange: #e85d04;
+      --orange-light: #f97316;
+      --red: #dc2626;
+      --red-light: #ef4444;
+      --gray: #f8fafc;
+      --text: #1e293b;
+      --muted: #64748b;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--blue);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .logo { color: white; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; text-decoration: none; }
+    .logo span { color: var(--orange-light); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta {
+      background: var(--red); color: white; padding: 0.5rem 1.2rem;
+      border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; transition: background 0.2s;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.5); }
+      50% { box-shadow: 0 0 0 6px rgba(220,38,38,0); }
+    }
+
+    /* EMERGENCY HERO */
+    .hero {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #7f1d1d 100%);
+      color: white; padding: 80px 5%; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('images/emergency.jpg');
+      background-size: cover; background-position: center;
+      opacity: 0.15;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block; background: var(--red);
+      color: white; border-radius: 4px;
+      padding: 0.4rem 1rem; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+    .hero h1 span { color: #fca5a5; }
+    .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 2rem; }
+    .hero-phone {
+      display: inline-block;
+      background: var(--red); color: white;
+      font-size: 2rem; font-weight: 900; letter-spacing: -0.5px;
+      padding: 1rem 2.5rem; border-radius: 12px;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 8px 30px rgba(220,38,38,0.4);
+    }
+    .hero-phone:hover { background: var(--red-light); transform: translateY(-2px); }
+    .hero-sub { margin-top: 1rem; font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+
+    /* RESPONSE BAR */
+    .response-bar {
+      background: var(--red); padding: 1.25rem 5%;
+      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+    }
+    .resp-item { text-align: center; color: white; }
+    .resp-item .num { font-size: 1.8rem; font-weight: 900; }
+    .resp-item .label { font-size: 0.75rem; font-weight: 600; opacity: 0.85; margin-top: 0.1rem; }
+
+    /* SECTIONS */
+    section { padding: 70px 5%; }
+    .section-label {
+      display: inline-block; color: var(--red); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--blue); line-height: 1.2; margin-bottom: 1rem; }
+    .subtitle { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 600px; }
+
+    /* PROBLEMS GRID */
+    .problems-bg { background: var(--gray); }
+    .problems-header { text-align: center; margin-bottom: 3rem; }
+    .problems-header .subtitle { margin: 0 auto; }
+    .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+    .problem-card {
+      background: white; border-radius: 12px; padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-left: 4px solid var(--red);
+      transition: all 0.2s;
+    }
+    .problem-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.09); }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 0.4rem; }
+    .problem-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.6; }
+
+    /* HOW IT WORKS */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .step { text-align: center; }
+    .step-num {
+      width: 56px; height: 56px; background: var(--red); color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; font-weight: 900; margin: 0 auto 1rem;
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 0.4rem; }
+    .step p { color: var(--muted); font-size: 0.87rem; line-height: 1.6; }
+
+    /* IMAGE SPLIT */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 420px; }
+    .split-img { overflow: hidden; }
+    .split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .split-content {
+      background: var(--blue); color: white;
+      padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center;
+    }
+    .split-content .section-label { color: #fca5a5; }
+    .split-content h2 { color: white; }
+    .split-content p { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.75; margin-top: 0.75rem; margin-bottom: 1.5rem; }
+    .split-content ul { list-style: none; margin-bottom: 2rem; }
+    .split-content ul li {
+      color: rgba(255,255,255,0.85); font-size: 0.9rem; padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; gap: 0.75rem; align-items: center;
+    }
+    .split-content ul li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--red-light); border-radius: 50%; flex-shrink: 0; }
+    .btn-red {
+      display: inline-block; background: var(--red); color: white;
+      padding: 0.85rem 1.8rem; border-radius: 8px; font-weight: 700; font-size: 1rem;
+      text-decoration: none; transition: all 0.2s; align-self: flex-start;
+    }
+    .btn-red:hover { background: var(--red-light); transform: translateY(-1px); }
+
+    /* CTA */
+    .cta-section {
+      background: var(--red); color: white; text-align: center; padding: 70px 5%;
+    }
+    .cta-section h2 { color: white; font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
+    .cta-section p { color: rgba(255,255,255,0.85); max-width: 500px; margin: 1rem auto 2rem; font-size: 1.05rem; line-height: 1.65; }
+    .cta-phone {
+      display: inline-block; background: white; color: var(--red);
+      font-size: 1.6rem; font-weight: 900; padding: 0.9rem 2.5rem;
+      border-radius: 10px; text-decoration: none; transition: all 0.2s;
+    }
+    .cta-phone:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* FOOTER */
+    footer {
+      background: #0d1f35; color: rgba(255,255,255,0.65);
+      padding: 3rem 5% 2rem;
+      display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;
+    }
+    .footer-brand p { margin-top: 0.75rem; font-size: 0.85rem; line-height: 1.65; max-width: 240px; }
+    .footer-col h4 { color: white; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; font-size: 0.85rem; }
+    .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem;
+      width: 100%; font-size: 0.8rem; text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .split { grid-template-columns: 1fr; }
+      .response-bar { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Cape Ann <span>Plumbing</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#areas">Service Area</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+  <a href="tel:+19785550192" class="nav-cta">CALL NOW — 24/7</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Emergency Plumbing Service</div>
+    <h1>Plumbing Emergency?<br><span>We're On Our Way.</span></h1>
+    <p>Burst pipe, sewer backup, no hot water — call us right now. We dispatch immediately, 24 hours a day, 365 days a year. No after-hours labor surcharge.</p>
+    <a href="tel:+19785550192" class="hero-phone">(978) 555-0192</a>
+    <div class="hero-sub">Real person answers. Every time. Day or night.</div>
+  </div>
+</div>
+
+<!-- RESPONSE BAR -->
+<div class="response-bar">
+  <div class="resp-item"><div class="num">24/7</div><div class="label">Always Available</div></div>
+  <div class="resp-item"><div class="num">&lt;60 min</div><div class="label">Average Response Time</div></div>
+  <div class="resp-item"><div class="num">$0</div><div class="label">After-Hours Surcharge</div></div>
+  <div class="resp-item"><div class="num">18 yrs</div><div class="label">Serving Eastern MA</div></div>
+</div>
+
+<!-- PROBLEMS -->
+<section class="problems-bg">
+  <div class="problems-header">
+    <div class="section-label">We Handle It All</div>
+    <h2>Common Plumbing Emergencies We Fix</h2>
+    <p class="subtitle">If it's urgent, we're the call to make. Here's what we respond to most.</p>
+  </div>
+  <div class="problems-grid">
+    <div class="problem-card">
+      <h3>Burst or Frozen Pipes</h3>
+      <p>A burst pipe can flood your home in minutes. We locate the break, stop the water, and make a lasting repair — fast.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Sewer Line Backup</h3>
+      <p>Sewage backing up into your drains or basement is a health hazard. We clear blockages and restore flow immediately.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Water Heater Failure</h3>
+      <p>No hot water, or worse — a leaking tank. We carry common replacement units and can often install same-day.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Gas Line Issues</h3>
+      <p>If you smell gas or suspect a leak, leave the building immediately and call us. We are licensed for gas line repair in MA.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Overflowing Toilet</h3>
+      <p>A clogged or overflowing toilet that won't stop can cause serious water damage. We respond and resolve it completely.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Leaking or Broken Fixtures</h3>
+      <p>Fixture failure at the worst time — a shower that won't shut off, a sink spraying water. We fix it today.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Sump Pump Failure</h3>
+      <p>During a storm with a failed sump pump, your basement can flood in hours. We repair or replace on-site.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Water Main Break</h3>
+      <p>Loss of water pressure or visible water in your yard may indicate a main line issue. We diagnose and repair quickly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div style="text-align:center; margin-bottom: 1rem;">
+    <div class="section-label">What Happens When You Call</div>
+    <h2>From Your Call to Problem Solved</h2>
+    <p class="subtitle" style="margin: 0 auto;">No runaround. Here's exactly what to expect.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>You Call</h3>
+      <p>A real licensed plumber — not an answering service — picks up within a few rings. We ask a few quick questions to understand the situation.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>We Dispatch</h3>
+      <p>We tell you exactly when to expect us. Our average response time across Eastern MA is under 60 minutes. You'll get a text when we're on the way.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>We Diagnose</h3>
+      <p>We assess the problem on-site and give you a clear, upfront price before doing any work. No surprises on the invoice.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>We Fix It</h3>
+      <p>We carry common parts and materials on every truck. Most emergency repairs are completed in a single visit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT IMAGE -->
+<div class="split">
+  <div class="split-img">
+    <img src="images/plumber.jpg" alt="Cape Ann Plumbing emergency technician" />
+  </div>
+  <div class="split-content">
+    <div class="section-label">No After-Hours Surcharge</div>
+    <h2>Midnight Rates Same as Noon</h2>
+    <p>Most plumbers charge a premium for nights, weekends, and holidays. We don't. The labor rate you'd pay at 2pm on a Tuesday is the same rate you pay at 2am on New Year's Eve.</p>
+    <ul>
+      <li>No holiday surcharge</li>
+      <li>No weekend markup</li>
+      <li>No after-hours fee on labor</li>
+      <li>Upfront pricing before work starts</li>
+      <li>1-year labor warranty on all repairs</li>
+    </ul>
+    <a href="tel:+19785550192" class="btn-red">Call (978) 555-0192</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Don't Wait — Call Now</h2>
+  <p>Every minute counts in a plumbing emergency. We're ready to roll right now.</p>
+  <a href="tel:+19785550192" class="cta-phone">(978) 555-0192</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="index.html" class="logo">Cape Ann <span>Plumbing</span></a>
+    <p>Licensed &amp; insured plumbing contractor serving Eastern Massachusetts since 2006. MA Lic. #12345.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="index.html#services">New Construction</a></li>
+      <li><a href="index.html#services">Renovations</a></li>
+      <li><a href="emergency.html">Emergency Repairs</a></li>
+      <li><a href="index.html#services">Water Heaters</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Service Area</h4>
+    <ul>
+      <li><a href="index.html#areas">North Shore</a></li>
+      <li><a href="index.html#areas">Cape Ann</a></li>
+      <li><a href="index.html#areas">South Shore</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Emergency Line</h4>
+    <ul>
+      <li><a href="tel:+19785550192">(978) 555-0192</a></li>
+      <li>Available 24/7/365</li>
+      <li><a href="mailto:hello@capeannplumbing.com">hello@capeannplumbing.com</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Cape Ann Plumbing. All rights reserved. | Eastern Massachusetts
+  </div>
+</footer>
+
+</body>
+</html>
